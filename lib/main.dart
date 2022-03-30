@@ -13,7 +13,7 @@ void main() {
     theme: ThemeData(
       primarySwatch: Colors.blue,
     ),
-    home: const RegisterView(),
+    home: const LoginView(),
   ));
 }
 
@@ -87,8 +87,10 @@ class _RegisterViewState extends State<RegisterView> {
                           print('Email already exist');
                         } else if (e.code == 'weak-password') {
                           print('Password must be great than 8 characters');
+                        } else if (e.code == 'invalid-email') {
+                          print('Invalid email');
                         } else {
-                          print('Some thing went wrong');
+                          print('Some things went wrong');
                           print(e.code);
                         }
                       }

@@ -73,6 +73,9 @@ class _LoginViewState extends State<LoginView> {
                           print('User not found');
                         } else if (e.code == 'wrong-password') {
                           print('Wrong password');
+                        } else {
+                          print('Some things went wrong');
+                          print(e.code);
                         }
                       }
                     },
