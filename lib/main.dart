@@ -9,7 +9,6 @@ import 'dart:developer' as devtools show log;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  devtools.log('Run app');
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     title: 'Flutter Demo',
@@ -19,7 +18,8 @@ void main() {
     home: const HomePage(),
     routes: {
       '/login/': ((context) => const LoginView()),
-      '/register/': (context) => const RegisterView()
+      '/register/': (context) => const RegisterView(),
+      '/notes/': (context) => const NotesView()
     },
   ));
 }
@@ -37,6 +37,7 @@ class HomePage extends StatelessWidget {
         switch (snapshot.connectionState) {
           case ConnectionState.done:
             final user = FirebaseAuth.instance.currentUser;
+            devtools.log(user.toString());
             if (user != null) {
               if (user.emailVerified) {
                 return const NotesView();
