@@ -85,7 +85,10 @@ class _LoginViewState extends State<LoginView> {
                   devtools.log(e.code);
                 }
               } catch (e) {
-                await showErrorDialog(context, e.toString());
+                await showErrorDialog(
+                  context,
+                  'Error: ${e.toString()}',
+                );
               }
             },
             child: const Text('Login'),
